@@ -7,11 +7,11 @@
 
 **1.**  
 
-![]()  
+![](https://github.com/diegolamus/so-exam2/blob/A00320776/Respuestas/A00320776/imagenes/Servicios.PNG)  
 
-![]()  
+![](https://github.com/diegolamus/so-exam2/blob/A00320776/Respuestas/A00320776/imagenes/dos%20procesos.PNG)  
 
-![]()  
+![](https://github.com/diegolamus/so-exam2/blob/A00320776/Respuestas/A00320776/imagenes/1%20proceso.PNG)  
 
 
 **2.**
