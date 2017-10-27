@@ -1,6 +1,7 @@
 # Solución
 
-**Nombre:** Diego Lamus
+**Nombre:** Diego Lamus  
+
 **Código:** A00320776
 
 # Respuestas
@@ -24,10 +25,15 @@ Finalmente, al detener uno de los procesos es posible observar que el proceso qu
 
 **2. Prueba systemd y CPUShares**
 
+A continuación se realizan pruebas con las mismas caracteristicas que las del punto anterior, con la diferencia de que ahora no se utilizará CPUQuota para limitar el uso de la CPU sino que se utilizará CPUShares para darle una participación de la CPU a cada uno de los procesos. Las shares se pueden ver como acciones, indican que tanto le pertenece a un proceso de la CPU. Como se observa en la imagen a continuación, a un proceso se le asignaron 500 shares y al otro 1500 shares.
 
 ![](https://github.com/diegolamus/so-exam2/blob/A00320776/Respuestas/A00320776/imagenes/shares%20servicio.PNG)  
 
+Posteriormente se ejecutaron ambos procesos. Al ejecutar los dos procesos, entre los dos tienen 2000 shares. A un proceso le pertenecen 500 shares, lo que representa el 25% del total ((500/2000)*100); al otro 1500 shares, lo que representa el 75% del total ((1500/2000)*100). Los porcentajes indican cuanto puede usar cada proceso de la CPU, y como se observa con el aplicativo TOP los procesos utilizan aproximadamente lo que tienen que utilizar. 
+
 ![](https://github.com/diegolamus/so-exam2/blob/A00320776/Respuestas/A00320776/imagenes/2%20cpu%20shares.PNG)  
+
+Al detener uno de los procesos, en este caso al que le pertenecen 1500 shares, queda un total de 500 shares. Al proceso que esta corriendo le correspinden 500 shares, lo que representa el 100% del total. Como se observa con el aplicativo TOP el proceso que queda utiliza cerca del 100% de la CPU.
 
 ![](https://github.com/diegolamus/so-exam2/blob/A00320776/Respuestas/A00320776/imagenes/1%20cpu%20shares.PNG)  
 
