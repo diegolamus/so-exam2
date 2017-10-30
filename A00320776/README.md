@@ -40,11 +40,25 @@ Al detener uno de los procesos, en este caso el que le pertenecen 1500 shares, q
 
 **3. definición CPUQUota y CPUShares**  
 
-  CPUQuota=X%
+  **CPUQuota=X%**  
+  
   Indica el maximo que podra ser usado de la CPU por un proceso. En este caso el maximo está definido entre  0%-100% de la CPU. 
   
-    Ejemplo:
-    [Service]
-    CPUQuota=20%
+      Ejemplo:
+      [Service]
+      CPUQuota=20%  
+      
    
-    Lo anterior indica que el servicio que tenga asociado ese segmento de código podrá utilizar como máximo el 20% de la CPU.
+ Lo anterior indica que el servicio que tenga asociado ese segmento de código podrá utilizar como máximo el 20% de la CPU.
+
+  **CPUShares=X**  
+  
+  Indica cuanta participación tiene un proceso de la CPU. Un proceso, al tener definido CPUShares, le perteneceran un porcentaje del uso de la CPU, el cual estara definido de la siguiente forma: "numero_shares_asignadas / total_shares_asignadas". numero_shares_asignadas es el numero de shares que se definieron para ese proceso en particulas; total_shares_asiganadas será el total de shares de los procesos activos.
+  
+      Ejemplo:
+      [Service]
+      CPUShares=1500
+    
+  Lo anterior indica que a este proceso en particular le corresponden 1500 shares. Ahora supongamos que se está ejecutando otro proceso al que le pertenecen 500 shares. Por lo tanto, al proceso actual cuando se ejecute le corresponderá  el 75% (1500/(1500+500)) del uso de la CPU. Ahora si el proceso al cual le corresponden 500 shares es detenido, al proceso actual le corresponderá el 100% (500/500) del uso de la CPU.
+  
+  
