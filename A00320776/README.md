@@ -59,6 +59,12 @@ Al detener uno de los procesos, en este caso el que le pertenecen 1500 shares, q
       [Service]
       CPUShares=1500
     
-  Lo anterior indica que a este proceso en particular le corresponden 1500 shares. Ahora supongamos que se está ejecutando otro proceso al que le pertenecen 500 shares. Por lo tanto, al proceso actual cuando se ejecute le corresponderá  el 75% (1500/(1500+500)) del uso de la CPU. Ahora si el proceso al cual le corresponden 500 shares es detenido, al proceso actual le corresponderá el 100% (500/500) del uso de la CPU.
+  Lo anterior indica que a este proceso en particular le corresponden 1500 shares. Ahora supongamos que se está ejecutando otro proceso al que le pertenecen 500 shares. Por lo tanto, al proceso actual cuando se ejecute le corresponderá  el 75% (1500/(1500+500)) del uso de la CPU. Ahora si el proceso al cual le corresponden 500 shares es detenido, al proceso actual le corresponderá el 100% (1500/1500) del uso de la CPU.
+  
+**Cuando usar CPUQuota y cuando usar CPUShares**
+
+La respuesta a esto depende de lo que se quiera lograr. Si lo que se quiere es limitar un proceso para que tenga acceso solo a cierto porcentaje de la CPU es preferible usar CPUQuota. Si lo que se requiere  es dividir el uso de la CPU entre ciertos procesos, dandole prioridad a los mas importantes, será preferible usar CPUShares.
+
+Ambos controles pueden ser utilizados en conjunto. Por ejemplo, si se da el caso en el que se requiere ejecutar un conjunto de procesos en una misma CPU y que cada uno pueda usar un porcentaje de la CPU específico, pero que cuando solo se este ejecutando un subconjunto del conjunto original, dicho subconjunto no pueda sobrepasar cierto límite del uso de la CPU. En este caso CPUShares se utilizará para asignar el procentaje que le corresponde a cada uno y CPUQUota para limitar el uso maximo en caso de que no se ejecuté todo el conjunto de procesos. 
   
   
